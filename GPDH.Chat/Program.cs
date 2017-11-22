@@ -19,6 +19,7 @@ namespace GPDH.Chat
             server.Bind(ipEndPoint);
             server.Listen(10);
             Console.WriteLine("Server Started");
+            var count = 0;
             while (true)
             {
                 var messageHandler = server.Accept();
@@ -29,6 +30,7 @@ namespace GPDH.Chat
                 Console.WriteLine(message);
                 messageHandler.Shutdown(SocketShutdown.Both);
                 messageHandler.Close();
+                Console.WriteLine(++count);
             }
             
         }
